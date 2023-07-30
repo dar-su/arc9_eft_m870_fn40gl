@@ -235,8 +235,8 @@ SWEP.IronSights = {
 SWEP.ActivePos = Vector(-0.5, -3.2, -0.5)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
-SWEP.SprintAng = Angle(50, 10, -45)
-SWEP.SprintPos = Vector(4, -5, 0)
+SWEP.SprintAng = Angle(50, -10, -25)
+SWEP.SprintPos = Vector(7, -2, 0)
 
 SWEP.NearWallAng = Angle(0, 55, 0)
 SWEP.NearWallPos = Vector(0, 0, -15)
@@ -802,7 +802,7 @@ SWEP.Attachments = {
     },
 }
 
-SWEP.EFTErgo = 38
+SWEP.EFTErgo = 45
 if ARC9EFTBASE then
     SWEP.AimDownSightsTimeHook = ARC9EFT.ErgoHook or nil
     SWEP.HoldBreathTimeHook = ARC9EFT.ErgoBreathHook or nil

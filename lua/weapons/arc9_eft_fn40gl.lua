@@ -184,7 +184,7 @@ SWEP.CrouchPos = Vector(-0.5, -2.0, -.45)
 SWEP.CrouchAng = Angle(0, 0, -1)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(20.5, 30, 3)
+SWEP.CustomizePos = Vector(15, 25, 5)
 SWEP.CustomizeSnapshotFOV = 95
 
 -------------------------- HoldTypes
@@ -330,9 +330,9 @@ SWEP.Animations = {
     },
 
     ["toggle"] = { Source = "mod_switch", EventTable = { { s = {"arc9_eft_shared/weapon_light_switcher1.ogg", "arc9_eft_shared/weapon_light_switcher2.ogg", "arc9_eft_shared/weapon_light_switcher3.ogg"}, t = 0 } } },
-    ["switchsights"] = { Source = "mod_switch", EventTable = { { s = {"arc9_eft_shared/weapon_light_switcher1.ogg", "arc9_eft_shared/weapon_light_switcher2.ogg", "arc9_eft_shared/weapon_light_switcher3.ogg"}, t = 0 } } },
+    -- ["switchsights"] = { Source = "mod_switch", EventTable = { { s = {"arc9_eft_shared/weapon_light_switcher1.ogg", "arc9_eft_shared/weapon_light_switcher2.ogg", "arc9_eft_shared/weapon_light_switcher3.ogg"}, t = 0 } } },
     ["toggle_empty"] = { Source = "mod_switch_empty", EventTable = { { s = {"arc9_eft_shared/weapon_light_switcher1.ogg", "arc9_eft_shared/weapon_light_switcher2.ogg", "arc9_eft_shared/weapon_light_switcher3.ogg"}, t = 0 } } },
-    ["switchsights_empty"] = { Source = "mod_switch_empty", EventTable = { { s = {"arc9_eft_shared/weapon_light_switcher1.ogg", "arc9_eft_shared/weapon_light_switcher2.ogg", "arc9_eft_shared/weapon_light_switcher3.ogg"}, t = 0 } } },
+    -- ["switchsights_empty"] = { Source = "mod_switch_empty", EventTable = { { s = {"arc9_eft_shared/weapon_light_switcher1.ogg", "arc9_eft_shared/weapon_light_switcher2.ogg", "arc9_eft_shared/weapon_light_switcher3.ogg"}, t = 0 } } },
 
     ["inspect"] = { Source = "idle" },    -- shutup arc9
 
@@ -345,22 +345,21 @@ SWEP.Animations = {
 -------------------------- ATTACHMENTS
 
 SWEP.AttachmentElements = {
-    ["eft_mp18_barrel_762x54r"]    = { Bodygroups = { {1, 1} } },
-    ["eft_mp18_hg_wood"]    = { Bodygroups = { {2, 1} } },
-    ["eft_mp18_hg_poly"]    = { Bodygroups = { {2, 2} } },
-    ["eft_mp18_stock_wood"]    = { Bodygroups = { {3, 1} } },
-    ["eft_mp18_stock_poly"]    = { Bodygroups = { {3, 2} } },
-    ["eft_mp18_mount_std"]    = { Bodygroups = { {4, 1} } },
-    ["76254r"]    = { Bodygroups = { {5, 1} } },
+    ["eft_ammo_40x46_m381"]    = { Bodygroups = { {1, 1} } },
+    ["eft_ammo_40x46_m386"]    = { Bodygroups = { {1, 2} } },
+    ["eft_ammo_40x46_m406"]    = { Bodygroups = { {1, 3} } },
+    ["eft_ammo_40x46_m441"]    = { Bodygroups = { {1, 4} } },
+    ["eft_ammo_40x46_m576"]    = { Bodygroups = { {1, 5} } },
+    ["eft_ammo_40x46_m576_nonubgl"]    = { Bodygroups = { {1, 5} } },
+    ["eft_ammo_40x46_m716"]    = { Bodygroups = { {1, 6} } },
+    ["eft_ammo_40x46_m433"]    = { Bodygroups = { {1, 7} } },
 }
 
 SWEP.missingpartsnotifsent = 0
 
 function SWEP:HookP_BlockFire()
-    if  !self:GetValue("HasStock") or 
-        !self:GetValue("HasBarrel") or
-        !self:GetValue("HasHandguard") or
-        !self:GetValue("HasAmmoooooooo") then
+    if  !self:GetValue("HasGrip") or 
+        !self:GetValue("HasGranataAmmo") then 
             
             if SERVER and self.missingpartsnotifsent < CurTime() then
                 self.missingpartsnotifsent = CurTime() + 3
@@ -372,15 +371,73 @@ function SWEP:HookP_BlockFire()
 end
 
 function SWEP:Hook_RedPrintName()
-    if  !self:GetValue("HasStock") or 
-        !self:GetValue("HasBarrel") or
-        !self:GetValue("HasHandguard") or
-        !self:GetValue("HasAmmoooooooo") then
+    if  !self:GetValue("HasGrip") or 
+        !self:GetValue("HasGranataAmmo") then 
             return true 
     end
 end
 
 SWEP.Attachments = {
+    {
+        PrintName = "Grenade type",
+        Category = {"eft_ammo_40x46", "eft_ammo_40x46_nonubgl"},
+        RejectAttachments = { ["eft_ammo_40x46_m576"] = true },
+        Bone = "patron_in_weapon",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, 0, 0),
+        Integral = "eft_ammo_40x46_m406",
+    },
+    {
+        PrintName = "Rear Sight",
+        Bone = "weapon",
+        Category = "eft_rearsight",
+        Pos = Vector(0, 9.6, 1.05),
+        Ang = Angle(0, -90, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "Optic",
+        Bone = "mod_scope",
+        Category = "eft_m2a1",
+        ExcludeElements = {"IronsBlockingSight"},
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, -90, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "Front Sight",
+        Bone = "weapon",
+        Category = "eft_frontsight",
+        Pos = Vector(0, 21.9, 1.05),
+        Ang = Angle(0, -90, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "Top Tactical",
+        Category = {"eft_tactical_top"},
+        Bone = "mod_tactical_000",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, -90, 0),
+        Icon_Offset = Vector(0, 0, 0.5),
+    },
+    {
+        PrintName = "R Tactical",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        -- RejectAttachments = { ["eft_tactical_raptar"] = true },
+        Bone = "mod_tactical_002",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, -90, 0),
+        Icon_Offset = Vector(0, 0, 0.5),
+    },
+    {
+        PrintName = "L Tactical",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        -- RejectAttachments = { ["eft_tactical_raptar"] = true },
+        Bone = "mod_tactical_001",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, -90, 0),
+        Icon_Offset = Vector(0, 0, 0.5),
+    },
     {
         PrintName = "Pistol grip",
         Category = {"eft_ar15_pgrip"},
@@ -390,32 +447,8 @@ SWEP.Attachments = {
         Ang = Angle(0, -90, 0),
     },
     {
-        PrintName = "Barrel",
-        Category = "eft_mp18_barrel",
-        Bone = "mod_barrel",
-        Pos = Vector(0, 0, 0),
-        Ang = Angle(0, 0, 0),
-        Installed = "eft_mp18_barrel_762x54r",
-        SubAttachments = {
-            {
-                Installed = "eft_ammo_762x54r_bt_gzh",
-            },
-            {
-                Installed = "eft_mp18_hg_wood",
-            }
-        }
-    },
-    {
-        PrintName = "Stock",
-        Category = "eft_mp18_stock",
-        Bone = "weapon",
-        Pos = Vector(0, 11, 0),
-        Ang = Angle(0, 0, 0),
-        Installed = "eft_mp18_stock_wood"
-    },
-    {
         PrintName = "Custom slot",
-        Category = {"eft_custom_slot", "eft_custom_mp18"},
+        Category = {"eft_custom_slot", "eft_custom_fn40gl"},
         Bone = "weapon",
         Pos = Vector(0, 8, -2),
         Ang = Angle(0, 0, 0),
@@ -423,7 +456,7 @@ SWEP.Attachments = {
     },
 }
 
-SWEP.EFTErgo = 44
+SWEP.EFTErgo = 51
 if ARC9EFTBASE then
     SWEP.AimDownSightsTimeHook = ARC9EFT.ErgoHook or nil
     SWEP.HoldBreathTimeHook = ARC9EFT.ErgoBreathHook or nil
@@ -435,4 +468,7 @@ end
 SWEP.AimDownSightsTimeMultShooting = 4
 
 SWEP.RicochetSounds = ARC9EFT.RicochetSounds
-SWEP.ShellSounds = ARC9EFT.Shells556
+SWEP.ShellSounds = ARC9EFT.ShellsHeavy
+
+SWEP.ShootEnt = "arc9_eft_40mm_m433_bang"
+SWEP.ShootEntHook = function(swep, old) return swep:GetValue("ShootEntUBGL") end -- bleh bleh those rounds for ubgl only
