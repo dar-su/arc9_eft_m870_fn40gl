@@ -225,8 +225,8 @@ SWEP.TracerColor = Color(255, 225, 200)
 --          Positions and offsets
 
 SWEP.IronSights = {
-    Pos = Vector(-4.27, -6, 0.45),
-    Ang = Angle(0, 0, 0),
+    Pos = Vector(-4.27, -6, 0.3),
+    Ang = Angle(0, 1.2, 0),
     Midpoint = { Pos = Vector(-1, 0, 8), Ang = Angle(0, 0, -145) },
     Magnification = 1.1,
     ViewModelFOV = 54

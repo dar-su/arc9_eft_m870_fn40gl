@@ -69,6 +69,16 @@ ATT.Category = {"eft_m870_barrel"}
 
 ATT.MuzzleEffectQCA = 4
 
+ATT.Sights = {
+    {
+        Pos = Vector(0, 16, -1.45),
+        Ang = Angle(0, -1.7, 0),
+        Magnification = 1.1,
+        ViewModelFOV = 53,
+        IsIronSight = true
+    }
+}
+
 ARC9.LoadAttachment(ATT, "eft_m870_barrel_355")
 
 ///////////////////////////////////////      eft_m870_barrel_508
@@ -141,6 +151,16 @@ ATT.SortOrder = 0
 ATT.MenuCategory = "ARC9 - EFT Attachments"
 
 ATT.Category = {"eft_m870_barrel"}
+
+ATT.Sights = {
+    {
+        Pos = Vector(0, 16, -1.3),
+        Ang = Angle(0, -0.4, 0),
+        Magnification = 1.1,
+        ViewModelFOV = 53,
+        IsIronSight = true
+    }
+}
 
 ATT.Attachments = {
     {
