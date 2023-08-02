@@ -73,7 +73,7 @@ SWEP.RecoilMultHipFire = 1.1
 SWEP.RecoilMultCrouch = 0.75
 SWEP.RecoilAutoControlMultHipFire = 0.5
 
-SWEP.RecoilUp = 3
+SWEP.RecoilUp = 12
 SWEP.RecoilSide = 0.4
 SWEP.RecoilRandomUp = 1.8
 SWEP.RecoilRandomSide = 0.96
@@ -226,7 +226,9 @@ SWEP.TracerColor = Color(255, 225, 200)
 
 SWEP.IronSights = {
     Pos = Vector(-4.27, -6, 0.3),
+    -- Pos = Vector(-4.27, -6, 1),
     Ang = Angle(0, 1.2, 0),
+    -- Ang = Angle(0, 0.2, 0),
     Midpoint = { Pos = Vector(-1, 0, 8), Ang = Angle(0, 0, -145) },
     Magnification = 1.1,
     ViewModelFOV = 54
@@ -549,7 +551,8 @@ SWEP.Animations = {
     IKTimeLine = {
         { t = 0, lhik = 0, rhik = 1 },
         { t = 1, lhik = 0, rhik = 1 },
-    }},
+    },
+    Mult = 0.85},
     ["reload_loop2"] = { Source = "reload_loop2", EventTable = {
         { s = path .. "mr133_shell_pickup.ogg", t = 0.31 },
         { s = randspin, t = 0.41 },
@@ -559,7 +562,8 @@ SWEP.Animations = {
     IKTimeLine = {
         { t = 0, lhik = 0, rhik = 1 },
         { t = 1, lhik = 0, rhik = 1 },
-    }},
+    },
+    Mult = 0.85},
     ["reload_end"] = { Source = "reload_end", EventTable = {
         { s = randspin, t = 0.28 },
     },
