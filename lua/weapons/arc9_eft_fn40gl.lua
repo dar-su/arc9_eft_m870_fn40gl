@@ -48,10 +48,10 @@ SWEP.PhysBulletMuzzleVelocity = 875 /0.0254
 SWEP.RangeMin = 10
 SWEP.RangeMax = 1000 /0.0254
 
-SWEP.Penetration =      55 *2.54/100/0.0254
-SWEP.PenetrationDelta = 87/100
-SWEP.ArmorPiercing =    87/100
-SWEP.RicochetChance =   26/100
+SWEP.Penetration =      1 *2.54/100/0.0254
+SWEP.PenetrationDelta = 1/100
+SWEP.ArmorPiercing =    1/100
+SWEP.RicochetChance =   1/100
 
 -------------------------- MAGAZINE
 
@@ -125,7 +125,7 @@ SWEP.VisualRecoilPositionBumpUpHipFire = 0.001
 
 -------------------------- SPREAD
 
-SWEP.Spread = 3.09 * ARC9.MOAToAcc
+SWEP.Spread = 24.06 * ARC9.MOAToAcc
 SWEP.SpreadAddHipFire = 0.03
 SWEP.SpreadMultMove = 1.5
 SWEP.SpreadAddMove = 0.015
@@ -169,7 +169,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-4.425, -8, 0.9),
+    Pos = Vector(-4.425, -4, 0.9),
     Ang = Angle(0, 0, 0),
     ViewModelFOV = 60,
     Midpoint = { -- Where the gun should be at the middle of it's irons
@@ -322,7 +322,7 @@ local randspin = {"arc9_eft_shared/weapon_generic_rifle_spin1.ogg","arc9_eft_sha
 local pouchout = {"arc9_eft_shared/generic_mag_pouch_out1.ogg","arc9_eft_shared/generic_mag_pouch_out2.ogg","arc9_eft_shared/generic_mag_pouch_out3.ogg","arc9_eft_shared/generic_mag_pouch_out4.ogg","arc9_eft_shared/generic_mag_pouch_out5.ogg","arc9_eft_shared/generic_mag_pouch_out6.ogg","arc9_eft_shared/generic_mag_pouch_out7.ogg"}
 
 SWEP.Animations = {
-    ["idle"] = { Source = "idle", Time = 1000 }, -- REMOVE TIME!!!!!!!
+    ["idle"] = { Source = "idle" },
     ["draw"] = { Source = "draw", EventTable = { { s = "arc9_eft_shared/weap_in.ogg", t = 0 }, } },
     ["ready"] = { Source = "draw", EventTable = { { s = "arc9_eft_shared/weap_in.ogg", t = 0 }, } },
     ["holster"] = { Source = "holster", EventTable = { { s = "arc9_eft_shared/weap_out.ogg", t = 0 }, } },
@@ -520,7 +520,7 @@ SWEP.Attachments = {
     {
         PrintName = "Pistol grip",
         Category = {"eft_ar15_pgrip"},
-        Installed = "eft_ar_pgrip_colta2",
+        Installed = "eft_ar_pgrip_diecsfde",
         Bone = "mod_pistol_grip",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, -90, 0),
@@ -550,4 +550,24 @@ SWEP.RicochetSounds = ARC9EFT.RicochetSounds
 SWEP.ShellSounds = ARC9EFT.ShellsHeavy
 
 SWEP.ShootEnt = "arc9_eft_40mm_m433_bang"
+SWEP.ShootEntForce = 20000
 SWEP.ShootEntHook = function(swep, old) return swep:GetValue("ShootEntUBGL") end -- bleh bleh those rounds for ubgl only
+
+-- probably rrrealllyy bad
+local aaaaaa = {
+    ["eft_ammo_40x46_m381"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m381.mdl",
+    ["eft_ammo_40x46_m386"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m386.mdl",
+    ["eft_ammo_40x46_m406"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m406.mdl",
+    ["eft_ammo_40x46_m441"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m441.mdl",
+    ["eft_ammo_40x46_m576"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m576.mdl",
+    ["eft_ammo_40x46_m576_nonubgl"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m576.mdl",
+    ["eft_ammo_40x46_m716"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m716.mdl",
+    ["eft_ammo_40x46_m433"]    = "models/weapons/arc9/darsu_eft/shells/40x46_m433.mdl",
+}
+
+SWEP.DropMagazineModelHook = function(swep, old) 
+    local elements = swep:GetElements()
+    for k, v in pairs(aaaaaa) do
+        if elements[k] then return v end 
+    end
+end

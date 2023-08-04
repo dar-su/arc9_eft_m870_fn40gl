@@ -112,31 +112,38 @@ ATT.Sights = {
     },
 }
 
-local m2a1zeroing = {-3, -5, -8.21, -11.1, -13.529, -15.8, -19.2596, -21.7567} -- negro
+local m2a1zeroingpp = {-3, -5, -8.21, -11.1, -13.529, -15.8, -19.2596, -21.7567}
+local m2a1zeroing = {-3, -5, -6.8, -8.9, -11, -13.75, -16, -17} -- negro
+
+local zeroang = Angle(0, 0, 0)
 
 ATT.ShootAngOffsetHook = function(swep, val) 
     if swep:GetInSights() then
         local mulsigh = math.min(swep:GetMultiSight(), 8)
         return Angle(-m2a1zeroing[mulsigh], 0, 0)
     end
-    return Angle(0, 0, 0)
+    return zeroang
 end
 
 ATT.DrawFunc = function(swep, model)
     local mulsigh = math.min(swep:GetMultiSight(), 8)
     model:SetPoseParameter("zeroing", mulsigh-1)
-    model.FakeHolosightAngleOffset = Angle(-m2a1zeroing[mulsigh], 0, 0)
+    model.FakeHolosightAngleOffset = Angle(-m2a1zeroingpp[mulsigh], 0, 0)
 end
 
 
 ARC9.LoadAttachment(ATT, "eft_optic_m2a1")
 
 
+
+
+
+
 ///////////////////////////////////////      eft_optic_m2a1_atts
 
 ATT = {}
 
-ATT.PrintName = "Milkor M2A1 grenade launcher reflex sight (With attachments slots, without zeroing)"
+ATT.PrintName = "Milkor M2A1 grenade launcher reflex sight (With attachments slots, without zeroing changing, locked on 50 meters)"
 ATT.CompactName = "M2A1"
 ATT.Icon = Material("entities/m2a1/m2a.png", "mips smooth")
 ATT.Description = [[The M2A1 sight was designed to compensate for the natural drift of the 40mm grenade. The built-in light sensor dims the reticle during daylight hours and allows for a brighter reticle during night time operations. The M2A1 reflex sight enhances the overall capabilities and usage of the MUSA MSGLs.
@@ -156,10 +163,22 @@ ATT.FoldSights = true
 
 ATT.Attachments = {
     {
-        PrintName = "Optic",
-        Category = {"eft_optic_large", "eft_optic_medium", "eft_optic_small"},
-        Pos = Vector(-1, 0, -3.5),
-        Ang = Angle(0, 0, 0),
+        PrintName = "Tactical L",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        Pos = Vector(0, -1.12, -2.05),
+        Ang = Angle(-3, 0, -90),
+    },
+    {
+        PrintName = "Tactical Top",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        Pos = Vector(0, 0, -3.17),
+        Ang = Angle(-3, 0, 0),
+    },
+    {
+        PrintName = "Tactical R",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        Pos = Vector(0, 1.12, -2.05),
+        Ang = Angle(-3, 0, 90),
     },
 }
 
@@ -182,16 +201,21 @@ ATT.Sights = {
     },
 }
 
+local funnyang = Angle(3, 0, 0)
+local zeroang = Angle(0, 0, 0)
+
 ATT.ShootAngOffsetHook = function(swep, val) 
     if swep:GetInSights() then
-        return Angle(3, 0, 0)
+        swep.raptarpleaseshutthefuckup = funnyang
+        return funnyang
     end
-    return Angle(0, 0, 0)
+    swep.raptarpleaseshutthefuckup = zeroang
+    return zeroang
 end
 
 ATT.DrawFunc = function(swep, model)
-    model:SetPoseParameter("zeroing", 0)
-    model.FakeHolosightAngleOffset = Angle(3, 0, 0)
+    -- model:SetPoseParameter("zeroing", 0)
+    model.FakeHolosightAngleOffset = funnyang
 end
 
 
