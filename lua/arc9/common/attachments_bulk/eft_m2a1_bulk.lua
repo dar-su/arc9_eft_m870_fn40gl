@@ -143,7 +143,7 @@ ARC9.LoadAttachment(ATT, "eft_optic_m2a1")
 
 ATT = {}
 
-ATT.PrintName = "Milkor M2A1 grenade launcher reflex sight (With attachments slots, without zeroing changing, locked on 50 meters)"
+ATT.PrintName = "Milkor M2A1 grenade launcher reflex sight (With attachments slots, without zeroing, locked on 50 meters)"
 ATT.CompactName = "M2A1"
 ATT.Icon = Material("entities/m2a1/m2a.png", "mips smooth")
 ATT.Description = [[The M2A1 sight was designed to compensate for the natural drift of the 40mm grenade. The built-in light sensor dims the reticle during daylight hours and allows for a brighter reticle during night time operations. The M2A1 reflex sight enhances the overall capabilities and usage of the MUSA MSGLs.
