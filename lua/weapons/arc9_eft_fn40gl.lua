@@ -77,6 +77,7 @@ SWEP.DropMagazineQCA = 4
 SWEP.DropMagazinePos = Vector(0, 0, 0)
 SWEP.DropMagazineAng = Angle(90, 180, 90)
 SWEP.DropMagazineVelocity = Vector(0, 40, 20)
+SWEP.DropMagazineSounds = ARC9EFT.ShellsHeavy
 
 SWEP.Overheat = false
 
