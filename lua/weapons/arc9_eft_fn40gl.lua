@@ -86,48 +86,65 @@ SWEP.Overheat = false
 SWEP.RPM = 666
 SWEP.Firemodes = { { Mode = 1 } }
 
--------------------------- RECOIL
 
--- General recoil multiplier
-SWEP.Recoil = 3
-SWEP.VisualRecoil = 0.2
+SWEP.Recoil = 0.6 -- general multiplier of main recoil
 
+SWEP.RecoilUp   = 7   -- up recoil
+SWEP.RecoilSide = 1.1 -- sideways recoil
+SWEP.RecoilRandomUp   = 0.5 -- random up/down
+SWEP.RecoilRandomSide = 1   -- random left/right
+
+SWEP.RecoilAutoControl = 3.0 -- autocompenstaion, could be cool if set to high but it also affects main recoil
+
+-- visual recoil   aka visrec
+SWEP.VisualRecoil = 3 -- general multiplier for it
+
+SWEP.VisualRecoilUp                   = 3   --   when fullautoing
+SWEP.VisualRecoilSide                 = 0.04   --   when fullautoing
+SWEP.VisualRecoilRoll = 5 -- roll tilt, a visual thing
+
+SWEP.VisualRecoilPunch = 1 -- How far back visrec moves the gun
+SWEP.VisualRecoilPunchSights = 15 -- same but in sights only
+
+SWEP.VisualRecoilDampingConst = 100  -- spring settings, this is speed of visrec
+SWEP.VisualRecoilSpringPunchDamping = 5 -- the less this is the more wobbly gun moves
+SWEP.VisualRecoilSpringMagnitude = 0.5 -- some third element of spring, high values make gun shake asf on low fps
+
+SWEP.VisualRecoilPositionBumpUpHipFire = 0.1 -- gun will go down each shot by this value
+SWEP.VisualRecoilPositionBumpUp = 0.05 -- same but in sights
+SWEP.VisualRecoilPositionBumpUpRTScope = 0.05 -- same but in rt scopes, you probably should keep it same as sight value, i guess it doesn't matter anymore after recoil update
+
+SWEP.VisualRecoilCenter = Vector(2, 12, 0) -- ugh, i dont now what to set it too, but probably it should be diffferent on each gun
+
+SWEP.RecoilKick = 0.85 -- camera roll each shot + makes camera go more up when fullautoing
+
+-- dont touch this i guess
+
+SWEP.RecoilMultHipFire = 1
 SWEP.RecoilMultCrouch = 0.75
-SWEP.RecoilUp = 1.1 * 0.85 -- patch 0.13.0.4.22617
-SWEP.RecoilSide = 0.1
-SWEP.RecoilRandomUp = 0.9
-SWEP.RecoilRandomSide = 0.1
+SWEP.RecoilUpMultFirstShot = 0.85
+SWEP.RecoilUpMultRecoil = 1.2
 
-SWEP.RecoilDissipationRate = 8
-SWEP.RecoilAutoControl = 7
-SWEP.RecoilResetTime = 0.05
+SWEP.RecoilDissipationRate = 5
+SWEP.RecoilAutoControlMultHipFire = 0.75
+SWEP.RecoilAutoControl_DontTryToReturnBack = true
+SWEP.RecoilResetTime = 0.03
+SWEP.RecoilFullResetTime = 0.2
 
 SWEP.UseVisualRecoil = true 
-SWEP.VisualRecoilMultSights = 1
 SWEP.VisualRecoilMultHipFire = 1
-SWEP.VisualRecoilMultCrouch = 0.5
+SWEP.VisualRecoilMultSights = 1
+SWEP.VisualRecoilMultCrouch = 0.75
 
-SWEP.VisualRecoilCenter = Vector(2, 11, 2)
-SWEP.VisualRecoilUp = 50 * 0.85 -- patch 0.13.0.4.22617
-SWEP.VisualRecoilSide = 10 -- Horizontal tilt
-SWEP.VisualRecoilRoll = 25 -- Roll tilt
-
-SWEP.VisualRecoilPunch = 9 -- How far back visual recoil moves the gun
-SWEP.VisualRecoilPunchMultSights = 0.5 -- How far back visual recoil moves the gun
-
-
-SWEP.VisualRecoilSpringPunchDamping = 15 / 2.67
-SWEP.VisualRecoilDampingConst = 60 * 1.67
-SWEP.VisualRecoilSpringMagnitude = 12 / 1.67
-SWEP.VisualRecoilPositionBumpUp = 0.04
-SWEP.VisualRecoilPositionBumpUpHipFire = 0.001
+SWEP.RecoilKickAffectPitch = true
+SWEP.RecoilKickDamping = 10
 
 
 
 -------------------------- SPREAD
 
 SWEP.Spread = 24.06 * ARC9.MOAToAcc
-SWEP.SpreadAddHipFire = 0.03
+SWEP.SpreadAddHipFire = 0.02
 SWEP.SpreadMultMove = 1.5
 SWEP.SpreadAddMove = 0.015
 
