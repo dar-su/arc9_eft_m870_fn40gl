@@ -31,7 +31,7 @@ SWEP.Description = [[A standalone buttstock assembly with an attached FN40GL Mk2
 SWEP.ViewModel = "models/weapons/arc9/darsu_eft/c_fn40gl.mdl"
 SWEP.WorldModel = "models/weapons/w_shot_xm1014.mdl" -- set to something more valid
 
-SWEP.Slot = 2
+SWEP.Slot = 4
 
 SWEP.MirrorVMWM = true
 SWEP.DefaultBodygroups = "00000000000000"
