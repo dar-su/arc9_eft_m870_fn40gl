@@ -220,3 +220,35 @@ end
 
 
 ARC9.LoadAttachment(ATT, "eft_optic_m2a1_atts")
+
+///////////////////////////////////////      eft_fn40_black     NOT MADE BY DARSU
+
+ATT = {}
+
+ATT.PrintName = "BLACK"
+ATT.CompactName = "BLACK"
+ATT.Icon = Material("entities/arc9_eft_fn40_black.png", "mips smooth")
+ATT.Description = [[Black color instead of FDE FN40GL parts.
+
+Not presents in EFT, custom att.]]
+
+ATT.SortOrder = -90
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ATT.SubMaterial0 = "models/weapons/arc9/darsu_eft/fn40gl/weapon_fn_40gl_mk2_40x46_BLK"
+ATT.SubMaterial1 = "models/weapons/arc9/darsu_eft/fn40gl/weapon_fn_40gl_mk2_40x46_sa_trigger_BLK"
+ATT.SubMaterial2 = "models/weapons/arc9/darsu_eft/fn40gl/weapon_fn_40gl_s_BLK"
+
+ATT.Category = {"eft_custom_fn40gl"}
+
+ATT.Attachments = {
+    {
+        PrintName = "Custom slot",
+        Pos = Vector(0, 0, 1),
+        Ang = Angle(0, 0, 0),
+        Category = {"eft_custom_slot", "eft_custom_fn40gl"},
+ 
+    },
+}
+
+ARC9.LoadAttachment(ATT, "eft_fn40_black")
