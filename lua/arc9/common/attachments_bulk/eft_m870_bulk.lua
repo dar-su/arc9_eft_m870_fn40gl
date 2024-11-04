@@ -469,7 +469,7 @@ ATT.Model = "models/weapons/arc9/darsu_eft/mods/agr870_rhik.mdl"
 -- ATT.LHIK = true
 ATT.RHIK = true
 
-ATT.Category = {"eft_m870_stock"}
+ATT.Category = {"eft_m870_stock", "eft_m870_stock_fabagr"}
 
 ATT.EFTErgoAdd = 9
 ATT.CustomPros = { Ergonomics = "+9" }
