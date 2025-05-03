@@ -5,18 +5,18 @@ SWEP.Spawnable = true
 
 ------------------------- |||           Trivia            ||| -------------------------
 
-SWEP.PrintName = "Remington M870"
-SWEP.Description = [[The Remington Model 870 is a pump-action shotgun manufactured by Remington Arms Company, LLC. It is widely used by the public for sport shooting, hunting, and self-defense and used by law enforcement and military organizations worldwide.]]
+SWEP.PrintName = ARC9:GetPhrase("eft_weapon_m870")
+SWEP.Description = "eft_weapon_m870_desc"
 
-SWEP.Class = ARC9:GetPhrase("eft_class_weapon_pumpsg")
+SWEP.Class = "eft_class_weapon_pumpsg"
 SWEP.SubCategory = ARC9:GetPhrase("eft_subcat_sg")
 
 SWEP.Trivia = {
-    [ARC9:GetPhrase("eft_trivia_manuf") .. "1"] = "Remington Arms Company, LLC",
-    [ARC9:GetPhrase("eft_trivia_cal") .. "2"] = "12 Gauge",
-    [ARC9:GetPhrase("eft_trivia_act") .. "3"]= "Pump",
-    [ARC9:GetPhrase("eft_trivia_country") .. "4"] = ARC9:GetPhrase("eft_trivia_country_usa"),
-    [ARC9:GetPhrase("eft_trivia_year") .. "5"] = "1951"
+    ["eft_trivia_manuf1"] = "eft_trivia_manuf_remington",
+    ["eft_trivia_cal2"] = "eft_trivia_calibr_12g",
+    ["eft_trivia_act3"]= "eft_trivia_act_pump",
+    ["eft_trivia_country4"] = "eft_trivia_country_usa",
+    ["eft_trivia_year5"] = "1951"
 }
 SWEP.StandardPresets = {
     "[Breacher]XQAAAQDxAQAAAAAAAAA9iIIiM7tuo1AtT00OeFD3QBNat72mxqHsDzw/jsqi/g9xXSLCVEdEzuopZ1zAPATGjsZRwSNXip83BQY15AotCVygnxfiOccvPHrBNHaPomIGjPl5NHBMW3QN5tCHUomIqSwPI6pPbIdSLJiOMe2LDAO2H7RtyXHKuM/GusyFnzGVSWlpAKWawhHTtV738WrQWbrlXAvT1W+5rZpr90erkGKIJUNGy6fsyYqeTfL5+mVXN8H8LGFqj1orFkUbiBFF+IVD8UGabF1R808HAA==",

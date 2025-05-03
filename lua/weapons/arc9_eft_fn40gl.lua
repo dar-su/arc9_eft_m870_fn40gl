@@ -5,18 +5,18 @@ SWEP.Spawnable = true
 
 ------------------------- |||           Trivia            ||| -------------------------
 
-SWEP.PrintName = "FN40GL Mk2"
-SWEP.Description = [[A standalone buttstock assembly with an attached FN40GL Mk2 grenade launcher. It is designed to use the full variety of NATO standard 40mm grenades. Manufactured by Fabrique Nationale Herstal.]]
+SWEP.PrintName = ARC9:GetPhrase("eft_weapon_fn40gl")
+SWEP.Description = "eft_weapon_fn40gl_desc"
 
-SWEP.Class = ARC9:GetPhrase("eft_class_weapon_grenadelauncher") or "Grenade launcher"
+SWEP.Class = "eft_class_weapon_grenadelauncher" or "Grenade launcher"
 SWEP.SubCategory = ARC9:GetPhrase("eft_subcat_grenades")
 
 SWEP.Trivia = {
-    [ARC9:GetPhrase("eft_trivia_manuf") .. "1"] = "FN Herstal",
-    [ARC9:GetPhrase("eft_trivia_cal") .. "2"] = "40x46mm",
-    [ARC9:GetPhrase("eft_trivia_act") .. "3"]= ARC9:GetPhrase("eft_trivia_act_breech") or "Breech",
-    [ARC9:GetPhrase("eft_trivia_country") .. "4"] = ARC9:GetPhrase("eft_trivia_country_germ"),
-    [ARC9:GetPhrase("eft_trivia_year") .. "5"] = "2004 (?)"
+    ["eft_trivia_manuf1"] = "eft_trivia_manuf_fnherstal",
+    ["eft_trivia_cal2"] = "eft_trivia_calibr_40x46",
+    ["eft_trivia_act3"]= "eft_trivia_act_breech",
+    ["eft_trivia_country4"] = "eft_trivia_country_belg",
+    ["eft_trivia_year5"] = "2004"
 }
 
 SWEP.StandardPresets = false 
