@@ -30,7 +30,7 @@ SWEP.WorldModelOffset = {
     Pos = Vector(-10, 5.5, -6),
     Ang = Angle(-7, 0, 180),
     TPIKPos = Vector(-8, 6, -1), -- rpg
-    TPIKAng = Angle(-5, 0, 180),
+    TPIKAng = Angle(-11.5, 0, 180),
     Scale = 1
 }
 
